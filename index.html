@@ -7,18 +7,36 @@
 <script type="text/javascript" src="http://www.big5apps.com/api/bigfive.js"></script>
 <script type="text/javascript">
 
+var tasks = ['Facebook', 'Twitter'];
+
 $(document).ready(function() {
 	vibrate();
 });
 
 function vibrate() {
+	$('h1').html(randEl(tasks));
 	Device.vibrate();
 	window.setTimeout(function() {
 		vibrate();
-	}, 1000);
+	}, 2000);
+}
+
+function rand(range) {
+	return Math.floor( Math.random() * range );
+}
+
+function randEl(arr) {
+	return arr[ rand(arr.length) ];
 }
 
 </script>
+
+<style type="text/css">
+
+html {
+	font-family: Helvetica, sans-serif; }
+
+</style>
 
 </head>
 
