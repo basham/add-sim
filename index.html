@@ -18,11 +18,13 @@ function vibrate() {
 	Device.vibrate();
 	window.setTimeout(function() {
 		vibrate();
-	}, 2000);
+	}, 1000 * rand(5,3));
 }
 
-function rand(range) {
-	return Math.floor( Math.random() * range );
+function rand(max, min) {
+	max = max == undefined ? 1 : max;
+	min = min == undefined ? 0 : min;
+	return Math.floor( Math.random() * ( max - min ) ) + min;
 }
 
 function randEl(arr) {
