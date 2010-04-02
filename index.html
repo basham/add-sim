@@ -8,8 +8,15 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-Device.vibrate();
+	vibrate();
 });
+
+function vibrate() {
+	Device.vibrate();
+	window.setTimeout(function() {
+		vibrate();
+	}, 1000);
+}
 
 </script>
 
