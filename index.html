@@ -15,9 +15,18 @@ $(document).ready(function() {
 	vibrate();
 });
 
+t = '';
+
 function vibrate() {
 	r = rand(6, 1);
-	$('h1').html(r + ' ' + randEl(tasks));
+	while(true) {
+		rt = randEl(tasks);
+		if ( rt == t )
+			continue;
+		t = rt;
+		break;
+	}
+	$('h1').html(r + ' ' + rt);
 	Device.vibrate();
 	window.setTimeout(function() {
 		vibrate();
