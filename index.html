@@ -14,7 +14,7 @@ $(document).ready(function() {
 });
 
 function vibrate() {
-	r = rand(5, 0);
+	r = rand(6, 1);
 	$('h1').html(r + ' ' + randEl(tasks));
 	Device.vibrate();
 	window.setTimeout(function() {
