@@ -14,21 +14,22 @@ $(document).ready(function() {
 });
 
 function vibrate() {
-	$('h1').html(randEl(tasks));
+	r = rand(5, 0);
+	$('h1').html(r + ' ' + randEl(tasks));
 	Device.vibrate();
 	window.setTimeout(function() {
 		vibrate();
-	}, 1000 * rand(5,3));
+	}, 1000 * r);
 }
 
 function rand(max, min) {
 	max = max == undefined ? 1 : max;
 	min = min == undefined ? 0 : min;
-	return Math.floor( Math.random() * ( max - min ) ) + min;
+	return Math.floor( Math.random() * ( max - min  + 1 ) ) + min;
 }
 
 function randEl(arr) {
-	return arr[ rand(arr.length) ];
+	return arr[ rand(arr.length - 1) ];
 }
 
 </script>
@@ -44,7 +45,7 @@ html {
 
 <body>
 
-	<h1>Woot</h1>
+	<h1></h1>
 
 </body>
 
