@@ -9,24 +9,92 @@
 <script type="text/javascript" src="http://www.big5apps.com/api/bigfive.js"></script>
 <script type="text/javascript">
 
-var tasks = ['Facebook', 'Twitter', 'Email', 'Digg', 'iTunes', 'iChat'];
+// Minimum duration
+var min = 6;
+// Maximum duration
+var max = 60;
+// All tasks
+var tasks = [];
+tasks.push('Play a key repeatedly.');
+tasks.push('Clean fingernails.');
+tasks.push('Read book.');
+tasks.push('Name items in the room.');
+tasks.push('Spin pen.');
+tasks.push('Play Sudoku.');
+tasks.push('Organize backpack.');
+tasks.push('Pace around the room.');
+tasks.push('Count from 1-10.');
+tasks.push('Write to-do list.');
+tasks.push('Go to the bathroom, but stop at the door.');
+tasks.push('Do 4 jumping jacks.');
+tasks.push('Do 7 push-ups.');
+tasks.push('Drum fingers on the wall.');
+tasks.push('"That\'s what she said!"');
+tasks.push('Daydream.');
+tasks.push('Daymare.');
+tasks.push('Think about cats.');
+tasks.push('Think about airplanes.');
+tasks.push('Think about weather.');
+tasks.push('Adjust the thermostat.');
+tasks.push('Look out the window.');
+tasks.push('Check the time.');
+tasks.push('Stretch.');
+tasks.push('Yawn.');
+tasks.push('Pop knuckles.');
+tasks.push('Stare at an object closely.');
+tasks.push('Hum or whistle a song.');
+tasks.push('Play air guitar.');
+tasks.push('Air punch.');
+tasks.push('Tie your shoes.');
+tasks.push('Shuffle through your wallet.');
+tasks.push('Jingle keys.');
+tasks.push('Crouch.');
+tasks.push('Doodle on Sudoku puzzle.');
+tasks.push('Fold Sudoku puzzle into a paper airplane.');
+tasks.push('Count the number of times the first word on a page repeats.');
+tasks.push('Name a few movies you have or want to watch.');
+tasks.push('Hold the iPhone in your opposite hand.');
+tasks.push('Close and reopen the sheet music.');
+tasks.push('Demand silence.');
+tasks.push('Scratch.');
+tasks.push('Turn off and on the lights.');
+tasks.push('Hum or whistle a song.');
+tasks.push('Add the digits of the current time.');
+tasks.push('Contemplate dividing by zero.');
+tasks.push('Stand and sit 4 times.');
+tasks.push('Look for pocket lint.');
+tasks.push('Balance the pin vertically.');
+tasks.push('Pen fights the pencil.');
+tasks.push('Simulate an explosion.');
+tasks.push('Fake sleepwalk.');
+tasks.push('Inverse pockets.');
+tasks.push('Roll eyes.');
+tasks.push('Cross eyes.');
+tasks.push('Look up, down, side to side.');
+tasks.push('Relive disco.');
+tasks.push('Practice your signature.');
+tasks.push('The pen is a spaceship. The book is a spaceport.');
+tasks.push('Play piano keys with pencil.');
+tasks.push('Play piano keys with elbow.');
+tasks.push('Identify triangles in the room.');
+
+// Current task
+var t = '';
 
 $(document).ready(function() {
 	vibrate();
 });
 
-t = '';
-
 function vibrate() {
-	r = rand(6, 1);
-	while(true) {
+	r = rand(max, min);
+	while(true) { // Guarantees a random elmenent won't repeat back-to-back
 		rt = randEl(tasks);
 		if ( rt == t )
 			continue;
 		t = rt;
 		break;
 	}
-	$('h1').html(r + ' ' + rt);
+	$('h1').html(rt);
 	Device.vibrate();
 	window.setTimeout(function() {
 		vibrate();
